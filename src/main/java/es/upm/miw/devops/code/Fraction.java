@@ -64,4 +64,52 @@ public class Fraction {
                 ", denominator=" + denominator +
                 '}';
     }
+
+    public boolean isProper() {
+        return denominator != 0 && numerator < denominator;
+    }
+
+    public boolean isImproper() {
+        return denominator != 0 && numerator > denominator;
+    }
+
+    public boolean isEquivalent(Fraction fraction) {
+        if (fraction == null) {
+            return false;
+        }
+
+        return (long) this.numerator * fraction.denominator ==
+                (long) this.denominator * fraction.numerator;
+    }
+
+    public Fraction multiply(Fraction fraction) {
+        if (fraction == null) {
+            throw new IllegalArgumentException("Fraction cannot be null.");
+        }
+
+        return new Fraction(getNumerator() * fraction.getNumerator(), getDenominator() * fraction.getDenominator());
+    }
+
+    public Fraction divide(Fraction fraction) {
+        if (fraction == null) {
+            throw new IllegalArgumentException("Fraction cannot be null.");
+        }
+
+        if (fraction.getNumerator() == 0) {
+            throw new IllegalArgumentException("Division by zero is not allowed.");
+        }
+
+        return multiply(new Fraction(fraction.getDenominator(), fraction.getNumerator()));
+    }
+
+    public Fraction add(Fraction fraction) {
+        if (fraction == null) {
+            throw new IllegalArgumentException("Fraction cannot be null.");
+        }
+
+        int commonDenominator = this.denominator * fraction.denominator;
+        int newNumerator = this.numerator * fraction.denominator + fraction.numerator * this.denominator;
+
+        return new Fraction(newNumerator, commonDenominator);
+    }
 }
