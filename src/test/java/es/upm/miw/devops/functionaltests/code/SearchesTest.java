@@ -47,4 +47,10 @@ class SearchesTest {
 
     void testFindFractionMultiplicationByUserFamilyName() {
     }
+
+    @Test
+    void testFindUserFamilyNameBySomeImproperFraction() {
+        assertThat(new Searches().findUserFamilyNameBySomeImproperFraction().toList())
+                .containsExactlyInAnyOrder("Fernandez", "Blanco", "López", "Blanco");
+    }
 }
