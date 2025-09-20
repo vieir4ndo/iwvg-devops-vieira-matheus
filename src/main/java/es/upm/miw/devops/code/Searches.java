@@ -91,4 +91,12 @@ public class Searches {
     public Fraction findFirstFractionSubtractionByUserName(String name) {
         return null;
     }
+
+    public Stream<String> findUserFamilyNameBySomeImproperFraction() {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getFractions().stream()
+                        .filter(Objects::nonNull)
+                        .anyMatch(fraction -> fraction.isImproper()))
+                .map(User::getFamilyName);
+    }
 }
