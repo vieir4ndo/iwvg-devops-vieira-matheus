@@ -11,7 +11,7 @@
 
 ### Estado del código
 [![DevOps](https://github.com/vieir4ndo/iwvg-devops-vieira-matheus/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/vieir4ndo/iwvg-devops-vieira-matheus/actions/workflows/continuous-integration.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aiwvg-devops&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=es.upm.miw%3Aiwvg-devops)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vieir4ndo_iwvg-devops-vieira-matheus&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=vieir4ndo_iwvg-devops-vieira-matheus)
 [![Render broken](https://iwvg-devops-latest.onrender.com/version-badge)](https://iwvg-devops-latest.onrender.com/swagger-ui.html)
 
 
