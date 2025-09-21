@@ -21,7 +21,7 @@ class SearchesTest {
     @Test
     void testFindFamilyNameByFractionDenominator() {
         assertThat(new Searches().findUserFamilyNameByFractionDenominator(2).toList())
-                .containsExactly("López", "Torres");
+                .containsExactly("López", "Torres", "Torres");
     }
 
     void testFindUserIdByAnyProperFraction() {

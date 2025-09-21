@@ -29,6 +29,9 @@ public class Fraction {
     private int denominator;
 
     public Fraction(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Denominator cannot be zero.");
+        }
         this.numerator = numerator;
         this.denominator = denominator;
     }
@@ -66,11 +69,11 @@ public class Fraction {
     }
 
     public boolean isProper() {
-        return denominator != 0 && numerator < denominator;
+        return numerator < denominator;
     }
 
     public boolean isImproper() {
-        return denominator != 0 && numerator > denominator;
+        return numerator > denominator;
     }
 
     public boolean isEquivalent(Fraction fraction) {
