@@ -96,7 +96,16 @@ public class Searches {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getFractions().stream()
                         .filter(Objects::nonNull)
-                        .anyMatch(fraction -> fraction.isImproper()))
+                        .anyMatch(Fraction::isImproper))
                 .map(User::getFamilyName);
+    }
+
+    public Fraction findFractionSubtractionByUserName(String name) {
+        return new UsersDatabase().findAll()
+                .filter(user -> name.equals(user.getName()))
+                .flatMap(user -> user.getFractions().stream())
+                .filter(Objects::nonNull)
+                .reduce(Fraction::subtract)
+                .orElse(null);
     }
 }
