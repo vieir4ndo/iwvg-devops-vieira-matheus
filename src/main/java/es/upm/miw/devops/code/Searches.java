@@ -108,4 +108,12 @@ public class Searches {
                 .reduce(Fraction::subtract)
                 .orElse(null);
     }
+
+    public Stream<String> findUserIdBySomeProperFraction() {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getFractions().stream()
+                        .filter(Objects::nonNull)
+                        .anyMatch(Fraction::isProper))
+                .map(User::getId);
+    }
 }

@@ -57,4 +57,10 @@ class SearchesTest {
         assertThat(new Searches().findUserFamilyNameBySomeImproperFraction().toList())
                 .containsExactlyInAnyOrder("Fernandez", "Blanco", "López", "Blanco");
     }
+
+    @Test
+    void testFindUserIdBySomeProperFraction(){
+        assertThat(new Searches().findUserIdBySomeProperFraction().toList())
+                .containsExactlyInAnyOrder("1", "2", "3", "5", "6");
+    }
 }
