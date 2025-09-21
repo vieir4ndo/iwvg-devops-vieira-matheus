@@ -110,9 +110,13 @@ public class Fraction {
             throw new IllegalArgumentException("Fraction cannot be null.");
         }
 
-        int commonDenominator = this.denominator * fraction.denominator;
-        int newNumerator = this.numerator * fraction.denominator + fraction.numerator * this.denominator;
+        int commonDenominator = denominator * fraction.denominator;
+        int newNumerator = numerator * (commonDenominator / denominator) + fraction.numerator * (commonDenominator / fraction.denominator);
 
         return new Fraction(newNumerator, commonDenominator);
+    }
+
+    public Fraction subtract(Fraction fraction) {
+        return add(new Fraction(-fraction.numerator, fraction.denominator));
     }
 }
