@@ -1,5 +1,6 @@
-package es.upm.miw.devops.code;
+package es.upm.miw.devops.functionaltests.code;
 
+import es.upm.miw.devops.code.Searches;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,7 +43,10 @@ class SearchesTest {
     void testFindFractionAdditionByUserId() {
     }
 
+    @Test
     void testFindFractionSubtractionByUserName() {
+        var subtraction = new Searches().findFractionSubtractionByUserName("Paula");
+        assertThat(subtraction.decimal()).isEqualTo((double) -4/3);
     }
 
     void testFindFractionMultiplicationByUserFamilyName() {
