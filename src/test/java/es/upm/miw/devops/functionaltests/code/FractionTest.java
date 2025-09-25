@@ -108,4 +108,57 @@ class FractionTest {
         Fraction proper = new Fraction(2, 5);
         assertThat(proper.isImproper()).isFalse();
     }
+
+    @Test
+    void testConstructor_DenominatorZeroThrowsException() {
+        assertThatThrownBy(() -> new Fraction(5, 0))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Denominator cannot be zero.");
+    }
+
+    @Test
+    void testIsEquivalent_NullFraction() {
+        Fraction f1 = new Fraction(1, 2);
+
+        boolean result = f1.isEquivalent(null);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    void testMultiply_NullFractionThrowsException() {
+        Fraction f1 = new Fraction(2, 3);
+
+        assertThatThrownBy(() -> f1.multiply(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Fraction cannot be null.");
+    }
+
+    @Test
+    void testDivide_NullFractionThrowsException() {
+        Fraction f1 = new Fraction(2, 3);
+
+        assertThatThrownBy(() -> f1.divide(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Fraction cannot be null.");
+    }
+
+    @Test
+    void testDivide_ByZeroNumeratorThrowsException() {
+        Fraction f1 = new Fraction(2, 3);
+        Fraction f2 = new Fraction(0, 5);
+
+        assertThatThrownBy(() -> f1.divide(f2))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Division by zero is not allowed.");
+    }
+
+    @Test
+    void testAdd_NullFractionThrowsException() {
+        Fraction f1 = new Fraction(1, 2);
+
+        assertThatThrownBy(() -> f1.add(null))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Fraction cannot be null.");
+    }
 }
